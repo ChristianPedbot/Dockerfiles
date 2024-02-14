@@ -1,0 +1,8 @@
+#Criando network
+docker network create network2
+
+#Container Phpmysql
+docker run -d --name dockerphpmyadmin -p 8080:80 --network=network2 -e PMA_ARBITRARY=1 phpmyadmin/phpmyadmin
+
+#Container Mysql
+docker run -d --name dockermysql --network network2 mysql-custom
